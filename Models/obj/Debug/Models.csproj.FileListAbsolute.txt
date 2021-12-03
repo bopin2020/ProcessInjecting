@@ -1,0 +1,6 @@
+D:\NativeSword\Models\bin\Debug\Models.dll
+D:\NativeSword\Models\bin\Debug\Models.pdb
+D:\NativeSword\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\NativeSword\Models\obj\Debug\Models.dll
+D:\NativeSword\Models\obj\Debug\Models.pdb
+D:\NativeSword\Models\obj\Debug\Models.csproj.AssemblyReference.cache

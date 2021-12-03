@@ -1,0 +1,28 @@
+userwx: true
+dinvoke : false
+syscall : false
+hellgates : false
+patchAmsi : false
+patchEtw  : false
+Blockdlls  : false
+XOR  : 0x0f
+sleep_time  : 5000
+# Process Ghosting for opsec by syscall and unhook memory handle api
+# Reference: https://github.com/knightswd/ProcessGhosting
+unhooks: 
+- "NtReadVirtualMemory"
+- "NtAllocateVirtualMemory"
+- "NtWriteVirtualMemory"
+spwanto   : c:\\windows\\system32\\rundll32.exe
+#
+# yaml文件格式学习
+# https://zhuanlan.zhihu.com/p/75067291
+#
+#
+# 
+# 使用冒号代表 冒号后加一个空格
+#
+#
+#
+#
+host: { ip: 127.0.0.1,port: 2222 }

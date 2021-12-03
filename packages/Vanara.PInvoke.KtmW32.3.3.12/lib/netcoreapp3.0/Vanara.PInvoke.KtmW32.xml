@@ -1,0 +1,1450 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vanara.PInvoke.KtmW32</name>
+    </assembly>
+    <members>
+        <member name="T:Vanara.PInvoke.KtmW32">
+            <summary>Kernel Transaction Manager (KTM) functions and structures.</summary>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.CreateEnlistmentOptions">
+            <summary>An optional enlistment instruction.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.CreateEnlistmentOptions.ENLISTMENT_SUPERIOR">
+            <summary>Enlist as a superior transaction manager.</summary>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.CreateRMOptions">
+            <summary>Optional attributes for the new RM.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.CreateRMOptions.RESOURCE_MANAGER_VOLATILE">
+            <summary>Indicates that the RM is volatile, and does not perform recovery.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.CreateRMOptions.RESOURCE_MANAGER_COMMUNICATION">
+            <summary/>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.CreateTrxnMgrOptions">
+            <summary>Optional attributes for the new TM.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.CreateTrxnMgrOptions.TRANSACTION_MANAGER_COMMIT_DEFAULT">
+            <summary/>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.CreateTrxnMgrOptions.TRANSACTION_MANAGER_VOLATILE">
+            <summary>Indicates that the TM is volatile, and does not perform recovery.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.CreateTrxnMgrOptions.TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME">
+            <summary/>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.CreateTrxnMgrOptions.TRANSACTION_MANAGER_COMMIT_SYSTEM_HIVES">
+            <summary/>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.CreateTrxnMgrOptions.TRANSACTION_MANAGER_COMMIT_LOWEST">
+            <summary/>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.CreateTrxnMgrOptions.TRANSACTION_MANAGER_CORRUPT_FOR_RECOVERY">
+            <summary/>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.CreateTrxnMgrOptions.TRANSACTION_MANAGER_CORRUPT_FOR_PROGRESS">
+            <summary/>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.CreateTrxnOptions">
+            <summary>Optional transaction instructions.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.CreateTrxnOptions.TRANSACTION_DO_NOT_PROMOTE">
+            <summary>The transaction cannot be distributed.</summary>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.EnlistmentAccess">
+            <summary>KTM defines the following enlistment access masks to be used when opening enlistments.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.EnlistmentAccess.ENLISTMENT_QUERY_INFORMATION">
+            <summary>The caller can query KTM for information about the enlistment.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.EnlistmentAccess.ENLISTMENT_SET_INFORMATION">
+            <summary>The caller can set information about the enlistment.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.EnlistmentAccess.ENLISTMENT_RECOVER">
+            <summary>The caller can recover an enlistment.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.EnlistmentAccess.ENLISTMENT_SUBORDINATE_RIGHTS">
+            <summary>
+            <para>
+            The caller can complete actions that a resource manager does on behalf of the transaction. The following is a list of actions:
+            </para>
+            <list type="bullet">
+            <item>CommitComplete</item>
+            <item>PrepareComplete</item>
+            <item>PrePrepareComplete</item>
+            <item>RollbackComplete</item>
+            <item>ReadOnlyEnlistment</item>
+            <item>RollbackEnlistment</item>
+            <item>SinglePhaseReject</item>
+            </list>
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.EnlistmentAccess.ENLISTMENT_SUPERIOR_RIGHTS">
+            <summary>The caller can enlist in the transaction as a superior transaction manager.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.EnlistmentAccess.ENLISTMENT_GENERIC_READ">
+            <summary>The caller has the following privileges: STANDARD_RIGHTS_READ and ENLISTMENT_QUERY_INFORMATION.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.EnlistmentAccess.ENLISTMENT_GENERIC_WRITE">
+            <summary>The caller has the following privileges: STANDARD_RIGHTS_WRITE, ENLISTMENT_SET_INFORMATION, and ENLISTMENT_RECOVER.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.EnlistmentAccess.ENLISTMENT_GENERIC_EXECUTE">
+            <summary>The caller has the following privileges: STANDARD_RIGHTS_EXECUTE, ENLISTMENT_RECOVER, and ENLISTMENT_SUBORDINATE_RIGHTS.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.EnlistmentAccess.ENLISTMENT_ALL_ACCESS">
+            <summary>This value sets all valid bits for an enlistment access value.</summary>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK">
+            <summary>Lists the different types of notifications that can be received by an enlistment.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_MASK">
+            <summary>A mask that indicates all valid bits for a transaction notification.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_PREPREPARE">
+            <summary>
+            This notification is called after a client calls CommitTransaction and either no resource manager (RM) supports single-phase
+            commit or a superior transaction manager (TM) calls PrePrepareEnlistment. This notification is received by the RMs indicating
+            that they should complete any work that could cause other RMs to need to enlist in a transaction, such as flushing its cache.
+            After completing these operations the RM must call PrePrepareComplete. To receive this notification the RM must also support
+            TRANSACTION_NOTIFY_PREPARE and TRANSACTION_NOTIFY_COMMIT.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_PREPARE">
+            <summary>
+            This notification is called after the TRANSACTION_NOTIFY_PREPREPARE processing is complete. It signals the RM to complete all
+            the work that is associated with this enlistment so that it can guarantee that a commit operation could succeed and an abort
+            operation could also succeed. Typically, the bulk of the work for a transaction is done during the prepare phase. For durable
+            RMs, they must log their state prior to calling the PrepareComplete function. This is the last chance for the RM to request
+            that the transaction be rolled back.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_COMMIT">
+            <summary>
+            This notification signals the RM to complete all the work that is associated with this enlistment. Typically, the RM releases
+            any locks, releases any information necessary to roll back the transaction. The RM must respond by calling the CommitComplete
+            function when it has finished these operations.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_ROLLBACK">
+            <summary>This notification signals the RM to undo all the work it has done that is associated with the transaction.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_PREPREPARE_COMPLETE">
+            <summary>This notification signals to the superior TM that a pre-prepare operation was completed successfully.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_PREPARE_COMPLETE">
+            <summary>This notification signals to the superior TM that a prepare operation was completed successfully.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_COMMIT_COMPLETE">
+            <summary>This notification signals to the superior TM that a commit operation was completed successfully.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_ROLLBACK_COMPLETE">
+            <summary>This notification signals to the superior TM that a rollback operation was completed successfully.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_RECOVER">
+            <summary>
+            This notification signals to RMs that they should recover their state because a transaction outcome must be redelivered. For
+            example, when an RM is recovered, and when there are transactions left in-doubt. This notification is delivered once the
+            in-doubt state is resolved.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT">
+            <summary>
+            This notification signals the RM to complete and commit the transaction without using a two-phase commit protocol. If the RM
+            wants to use a two-phase operation, it must respond by calling the SinglePhaseReject function.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_DELEGATE_COMMIT">
+            <summary>KTM is signaling to the superior TM to perform a commit operation.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_RECOVER_QUERY">
+            <summary>KTM is signaling to the superior TM to query the status of an in-doubt transaction.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_ENLIST_PREPREPARE">
+            <summary>
+            This notification signals to the superior TM that pre-prepare notifications must be delivered on the specified enlistment.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_LAST_RECOVER">
+            <summary>This notification indicates that the recovery operation is complete for this RM.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_INDOUBT">
+            <summary>
+            The specified transaction is in an in-doubt state. The RM receives this notification during recovery operations when a
+            transaction has been prepared, but there is no superior transaction manager (TM) available. For example, when a transaction
+            involves a remote TM and that node is unavailable, its node is unavailable, or the local Distributed Transaction Coordinator
+            service is unavailable, the transaction state is in-doubt.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_TM_ONLINE">
+            <summary>The TM is online and accepting requests.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_REQUEST_OUTCOME">
+            <summary>
+            Signals to RMs that there is outcome information available, and that a request for that information should be made.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.NOTIFICATION_MASK.TRANSACTION_NOTIFY_COMMIT_FINALIZE">
+            <summary>Reserved.</summary>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.ResourceManagerAccess">
+            <summary>KTM defines the following enlistment access masks to be used when opening a resource manager.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.ResourceManagerAccess.RESOURCEMANAGER_QUERY_INFORMATION">
+            <summary>The caller can query for the resource manager (RM) information.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.ResourceManagerAccess.RESOURCEMANAGER_SET_INFORMATION">
+            <summary>The caller can set the RM information.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.ResourceManagerAccess.RESOURCEMANAGER_RECOVER">
+            <summary>The caller can recover the specified RM.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.ResourceManagerAccess.RESOURCEMANAGER_ENLIST">
+            <summary>The caller can enlist an RM in a transaction.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.ResourceManagerAccess.RESOURCEMANAGER_GET_NOTIFICATION">
+            <summary>The caller can receive a notification for an RM.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.ResourceManagerAccess.RESOURCEMANAGER_REGISTER_PROTOCOL">
+            <summary/>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.ResourceManagerAccess.RESOURCEMANAGER_COMPLETE_PROPAGATION">
+            <summary/>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.ResourceManagerAccess.RESOURCEMANAGER_GENERIC_READ">
+            <summary>The caller has the following privileges: STANDARD_RIGHTS_READ, RESOURCEMANAGER_QUERY_INFORMATION, and RESOURCEMANAGER_RECOVER.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.ResourceManagerAccess.RESOURCEMANAGER_GENERIC_WRITE">
+            <summary>
+            The caller has the following privileges: STANDARD_RIGHTS_WRITE, RESOURCEMANAGER_SET_INFORMATION, RESOURCEMANAGER_ENLIST, and RESOURCEMANAGER_GET_NOTIFICATION.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.ResourceManagerAccess.RESOURCEMANAGER_GENERIC_EXECUTE">
+            <summary>The caller has the following privileges: STANDARD_RIGHTS_EXECUTE, RESOURCEMANAGER_ENLIST, and RESOURCEMANAGER_GET_NOTIFICATION.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.ResourceManagerAccess.RESOURCEMANAGER_ALL_ACCESS">
+            <summary>The caller has the following privilege: STANDARD_RIGHTS_REQUIRED.</summary>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.TRANSACTION_OUTCOME">
+            <summary>Defines the outcomes (results) that KTM can assign to a transaction.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TRANSACTION_OUTCOME.TransactionOutcomeUndetermined">
+            <summary>The transaction has not yet been committed or rolled back.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TRANSACTION_OUTCOME.TransactionOutcomeCommitted">
+            <summary>The transaction has been committed.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TRANSACTION_OUTCOME.TransactionOutcomeAborted">
+            <summary>The transaction has been rolled back.</summary>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.TransactionAccess">
+            <summary>KTM defines the following transaction access masks to be used when opening a transaction.</summary>
+            <remarks>
+            It is recommended that resource managers, when enlisting in a transaction, specify <c>TRANSACTION_RESOURCE_MANAGER_RIGHTS</c>
+            when opening a transaction.
+            </remarks>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionAccess.TRANSACTION_QUERY_INFORMATION">
+            <summary>The caller can query transaction information.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionAccess.TRANSACTION_SET_INFORMATION">
+            <summary>The caller can set transaction information.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionAccess.TRANSACTION_ENLIST">
+            <summary>The caller can enlist in this transaction.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionAccess.TRANSACTION_COMMIT">
+            <summary>The caller can commit this transaction.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionAccess.TRANSACTION_ROLLBACK">
+            <summary>The caller can roll back this transaction.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionAccess.TRANSACTION_PROPAGATE">
+            <summary>
+            The caller can propagate this transaction to a superior resource manager, such as the Distributed Transaction Coordinator (DTC).
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionAccess.TRANSACTION_GENERIC_READ">
+            <summary>The caller has the following privileges: STANDARD_RIGHTS_READ, TRANSACTION_QUERY_INFORMATION, and SYNCHRONIZE.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionAccess.TRANSACTION_GENERIC_WRITE">
+            <summary>
+            The caller has the following privileges: STANDARD_RIGHTS_WRITE, TRANSACTION_SET_INFORMATION, TRANSACTION_COMMIT,
+            TRANSACTION_ENLIST, TRANSACTION_ROLLBACK, TRANSACTION_PROPAGATE, and SYNCHRONIZE.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionAccess.TRANSACTION_GENERIC_EXECUTE">
+            <summary>
+            The caller has the following privileges: STANDARD_RIGHTS_EXECUTE, TRANSACTION_COMMIT, TRANSACTION_ROLLBACK, and SYNCHRONIZE.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionAccess.TRANSACTION_ALL_ACCESS">
+            <summary>
+            The caller has the following privilege: STANDARD_RIGHTS_REQUIRED, TRANSACTION_GENERIC_READ, TRANSACTION_GENERIC_WRITE, and TRANSACTION_GENERIC_EXECUTE.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionAccess.TRANSACTION_RESOURCE_MANAGER_RIGHTS">
+            <summary>
+            The caller has the following privileges: TRANSACTION_GENERIC_READ, STANDARD_RIGHTS_WRITE, TRANSACTION_SET_INFORMATION,
+            TRANSACTION_ROLLBACK, TRANSACTION_ENLIST, TRANSACTION_PROPAGATE, and SYNCHRONIZE.
+            </summary>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.TransactionMgrAccess">
+            <summary>KTM defines the following enlistment access masks to be used when opening a transaction manager (TM).</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionMgrAccess.TRANSACTIONMANAGER_QUERY_INFORMATION">
+            <summary>The caller can query information about this TM.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionMgrAccess.TRANSACTIONMANAGER_SET_INFORMATION">
+            <summary>The caller can set information about this TM.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionMgrAccess.TRANSACTIONMANAGER_RECOVER">
+            <summary>The caller can recover this TM.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionMgrAccess.TRANSACTIONMANAGER_RENAME">
+            <summary>The caller can rename a TM instance.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionMgrAccess.TRANSACTIONMANAGER_CREATE_RM">
+            <summary>The caller can create a resource manager that is associated with this TM.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionMgrAccess.TRANSACTIONMANAGER_BIND_TRANSACTION">
+            <summary>This value is reserved.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionMgrAccess.TRANSACTIONMANAGER_GENERIC_READ">
+            <summary>The caller has the following privileges: STANDARD_RIGHTS_READ and TRANSACTIONMANAGER_QUERY_INFORMATION.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionMgrAccess.TRANSACTIONMANAGER_GENERIC_WRITE">
+            <summary>
+            The caller has the following privileges: STANDARD_RIGHTS_WRITE, TRANSACTIONMANAGER_SET_INFORMATION,
+            TRANSACTIONMANAGER_RECOVER, TRANSACTIONMANAGER_RENAME, and TRANSACTIONMANAGER_CREATE_RM.
+            </summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionMgrAccess.TRANSACTIONMANAGER_GENERIC_EXECUTE">
+            <summary>The caller has the following privilege: STANDARD_RIGHTS_EXECUTE.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TransactionMgrAccess.TRANSACTIONMANAGER_ALL_ACCESS">
+            <summary>This value sets all valid bits for a TM access value.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.CommitComplete(Vanara.PInvoke.KtmW32.HENLISTMENT,System.Int64@)">
+            <summary>
+            Indicates that a resource manager (RM) has finished committing a transaction that was requested by the transaction manager (TM).
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment for which the commit operation is completed.</param>
+            <param name="TmVirtualClock">
+            <para>
+            The latest virtual clock value received for this transaction. If you specify <c>NULL</c>, the virtual clock value is not changed.
+            See LARGE_INTEGER.
+            </para>
+            <para>To change the virtual clock value, this value must be greater than the current value returned in the COMMIT notification.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.CommitComplete(Vanara.PInvoke.KtmW32.HENLISTMENT,System.IntPtr)">
+            <summary>
+            Indicates that a resource manager (RM) has finished committing a transaction that was requested by the transaction manager (TM).
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment for which the commit operation is completed.</param>
+            <param name="TmVirtualClock">
+            <para>
+            The latest virtual clock value received for this transaction. If you specify <c>NULL</c>, the virtual clock value is not changed.
+            See LARGE_INTEGER.
+            </para>
+            <para>To change the virtual clock value, this value must be greater than the current value returned in the COMMIT notification.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.CommitEnlistment(Vanara.PInvoke.KtmW32.HENLISTMENT,System.Int64@)">
+            <summary>
+            Commits the transaction associated with this enlistment handle. This function is used by communication resource managers
+            (sometimes called superior transaction managers).
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment to commit.</param>
+            <param name="TmVirtualClock">
+            <para>
+            A pointer to the latest virtual clock value received for this enlistment. If you specify <c>NULL</c>, the virtual clock value is
+            not changed.
+            </para>
+            <para>To change the virtual clock value, this value must be greater than the current value returned by a subordinate TM.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.CommitEnlistment(Vanara.PInvoke.KtmW32.HENLISTMENT,System.IntPtr)">
+            <summary>
+            Commits the transaction associated with this enlistment handle. This function is used by communication resource managers
+            (sometimes called superior transaction managers).
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment to commit.</param>
+            <param name="TmVirtualClock">
+            <para>
+            A pointer to the latest virtual clock value received for this enlistment. If you specify <c>NULL</c>, the virtual clock value is
+            not changed.
+            </para>
+            <para>To change the virtual clock value, this value must be greater than the current value returned by a subordinate TM.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.CommitTransaction(Vanara.PInvoke.Kernel32.HTRXN)">
+            <summary>Requests that the specified transaction be committed.</summary>
+            <param name="TransactionHandle">
+            <para>A handle to the transaction to be committed.</para>
+            <para>
+            This handle must have been opened with the TRANSACTION_COMMIT access right. For more information, see KTM Security and Access Rights.
+            </para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            <para>
+            You can commit any transaction handle that has been opened or created using the TRANSACTION_COMMIT permission; any application
+            can commit a transaction, not just the creator.
+            </para>
+            <para>This function can only be called if the transaction is still active, not prepared, pre-prepared, or rolled back.</para>
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.CommitTransactionAsync(Vanara.PInvoke.Kernel32.HTRXN)">
+            <summary>Requests that the specified transaction be committed.</summary>
+            <param name="TransactionHandle">
+            <para>A handle to the transaction to be committed.</para>
+            <para>
+            This handle must have been opened with the TRANSACTION_COMMIT access right. For more information, see KTM Security and Access Rights.
+            </para>
+            </param>
+            <returns>
+            <para>
+            If the function succeeds, the return value is nonzero. Success means that the function completed synchronously, and the calling
+            application does not need to wait for pending results.
+            </para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.CreateEnlistment(Vanara.PInvoke.SECURITY_ATTRIBUTES,Vanara.PInvoke.KtmW32.HRESMGR,Vanara.PInvoke.Kernel32.HTRXN,Vanara.PInvoke.KtmW32.NOTIFICATION_MASK,Vanara.PInvoke.KtmW32.CreateEnlistmentOptions,System.IntPtr)">
+            <summary>Creates an enlistment, sets its initial state, and opens a handle to the enlistment with the specified access.</summary>
+            <param name="lpEnlistmentAttributes">
+            A pointer to a SECURITY_ATTRIBUTES structure that contains the security attributes for the enlistment manager. Specify
+            <c>NULL</c> to obtain the default attributes.
+            </param>
+            <param name="ResourceManagerHandle">A handle to the resource manager (RM) to enlist.</param>
+            <param name="TransactionHandle">A handle to the transaction in which the RM is enlisting.</param>
+            <param name="NotificationMask">
+            The notifications this RM is requesting for the TransactionHandle parameter. For a list of valid values, see NOTIFICATION_MASK.
+            </param>
+            <param name="CreateOptions">
+            <para>Any optional enlistment instructions.</para>
+            <list type="table">
+            <listheader>
+            <term>Value</term>
+            <term>Meaning</term>
+            </listheader>
+            <item>
+            <term>ENLISTMENT_SUPERIOR 1</term>
+            <term>Enlist as a superior transaction manager.</term>
+            </item>
+            </list>
+            </param>
+            <param name="EnlistmentKey">
+            A pointer to a user-defined structure used by the RM that is returned when a notification is sent in the TRANSACTION_NOTIFICATION
+            structure. This is typically used to associate a private structure with this specific transaction.
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is a handle to the enlistment.</para>
+            <para>
+            If the function fails, the return value is <c>INVALID_HANDLE_VALUE</c>. To get extended error information, call the GetLastError function.
+            </para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            <para><c>Windows Vista:</c> Any attempt to enlist during the pre-prepare phase or later will fail.</para>
+            <para>
+            If you do not specify within your notification mask that you accept a single-phase commit request, KTM always performs a
+            two-phase commit operation.
+            </para>
+            <para>Keep the following notification rules in mind when enlisting in transactions:</para>
+            <list type="bullet">
+            <item>
+            <term>The RM must always request rollback notification.</term>
+            </item>
+            <item>
+            <term>If the RM requests prepare notification, it must also request commit notification.</term>
+            </item>
+            <item>
+            <term>If the RM requests a single-phase commit operation, it must also specify prepare and commit notifications.</term>
+            </item>
+            <item>
+            <term>
+            The only time an RM is not required to request commit notifications is when it is requesting at least a pair of pre-prepare and
+            rollback notifications.
+            </term>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.CreateResourceManager(Vanara.PInvoke.SECURITY_ATTRIBUTES,System.Guid@,Vanara.PInvoke.KtmW32.CreateRMOptions,Vanara.PInvoke.KtmW32.HTRXNMGR,System.String)">
+            <summary>Creates a new resource manager (RM) object, and associates the RM with a transaction manager (TM).</summary>
+            <param name="lpResourceManagerAttributes">
+            A pointer to a SECURITY_ATTRIBUTES structure that contains the security attributes for the resource manager. Specify <c>NULL</c>
+            to obtain the default attributes.
+            </param>
+            <param name="ResourceManagerId">A pointer the resource manager GUID. This parameter is required and must not be <c>NULL</c>.</param>
+            <param name="CreateOptions">
+            <para>Any optional attributes for the new RM.</para>
+            <list type="table">
+            <listheader>
+            <term>Value</term>
+            <term>Meaning</term>
+            </listheader>
+            <item>
+            <term>RESOURCE_MANAGER_VOLATILE</term>
+            <term>Indicates that the RM is volatile, and does not perform recovery.</term>
+            </item>
+            </list>
+            </param>
+            <param name="TmHandle">A handle to the TM that will manage the transactions for this RM.</param>
+            <param name="Description">A description for this RM.</param>
+            <returns>
+            <para>If the function succeeds, the return value is a handle to the RM.</para>
+            <para>
+            If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended error information, call the GetLastError function.
+            </para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            <para>Immediately after calling this function, you must call RecoverResourceManager.</para>
+            <para>An RM is an endpoint for TM notifications regarding transactions that the RM has enlisted in.</para>
+            <para>
+            RMs are typically persistent, meaning that after a system failure, they must be reopened to perform certain operations. Volatile,
+            or transient, RMs can be created by calling the <c>CreateResourceManager</c> function and by specifying
+            RESOURCE_MANAGER_VOLATILE. Volatile RMs do not perform recovery operations, but do require notifications about a transaction.
+            </para>
+            <para>You can create a volatile RM on a durable TM, but you cannot create a durable RM on a volatile TM.</para>
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.CreateTransaction(Vanara.PInvoke.SECURITY_ATTRIBUTES,System.IntPtr,Vanara.PInvoke.KtmW32.CreateTrxnOptions,System.UInt32,System.UInt32,System.UInt32,System.String)">
+            <summary>Creates a new transaction object.</summary>
+            <param name="lpTransactionAttributes">
+            <para>
+            A pointer to a SECURITY_ATTRIBUTES structure that determines whether the returned handle can be inherited by child processes. If
+            this parameter is <c>NULL</c>, the handle cannot be inherited.
+            </para>
+            <para>
+            The <c>lpSecurityDescriptor</c> member of the structure specifies a security descriptor for the new event. If
+            lpTransactionAttributes is <c>NULL</c>, the object gets a default security descriptor. The access control lists (ACL) in the
+            default security descriptor for a transaction come from the primary or impersonation token of the creator.
+            </para>
+            </param>
+            <param name="UOW">Reserved. Must be zero (0).</param>
+            <param name="CreateOptions">
+            <para>Any optional transaction instructions.</para>
+            <list type="table">
+            <listheader>
+            <term>Value</term>
+            <term>Meaning</term>
+            </listheader>
+            <item>
+            <term>TRANSACTION_DO_NOT_PROMOTE</term>
+            <term>The transaction cannot be distributed.</term>
+            </item>
+            </list>
+            </param>
+            <param name="IsolationLevel">Reserved; specify zero (0).</param>
+            <param name="IsolationFlags">Reserved; specify zero (0).</param>
+            <param name="Timeout">
+            <para>
+            The time-out interval, in milliseconds. If a nonzero value is specified, the transaction will be aborted when the interval
+            elapses if it has not already reached the prepared state.
+            </para>
+            <para>Specify zero (0) or INFINITE to provide an infinite time-out.</para>
+            </param>
+            <param name="Description">A user-readable description of the transaction.</param>
+            <returns>
+            <para>If the function succeeds, the return value is a handle to the transaction.</para>
+            <para>
+            If the function fails, the return value is <c>INVALID_HANDLE_VALUE</c>. To get extended error information, call the GetLastError function.
+            </para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            <para>
+            Use the CloseHandle function to close the transaction handle. If the last transaction handle is closed before a client calls the
+            CommitTransaction function with the transaction handle, then KTM rolls back the transaction.
+            </para>
+            <para>
+            If the transaction might need to be promotable to a distributed transaction, then you must grant the Distributed Transaction
+            Coordinator (DTC) access rights to enlist in the transaction. To do this, the lpTransactionAttributes parameter needs to contain
+            an access control entry with the DTC’s SID (S-1-5-80-2818357584-3387065753-4000393942-342927828-138088443) and the
+            TRANSACTION_ENLIST right. For more information, see Distributed Transaction Coordinator and Access Control Components.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.CreateTransactionManager(Vanara.PInvoke.SECURITY_ATTRIBUTES,System.String,Vanara.PInvoke.KtmW32.CreateTrxnMgrOptions,System.UInt32)">
+            <summary>Creates a new transaction manager (TM) object and returns a handle with the specified access.</summary>
+            <param name="lpTransactionAttributes">The transaction SECURITY_ATTRIBUTES (ACLs) for the TM object.</param>
+            <param name="LogFileName">
+            The log file stream name. If the stream does not exist in the log, it is created. To create a volatile TM, this parameter must be
+            <c>NULL</c> and CreateOptions must specify TRANSACTION_MANAGER_VOLATILE, this transaction manager is considered volatile.
+            </param>
+            <param name="CreateOptions">
+            <para>Any optional attributes for the new TM.</para>
+            <list type="table">
+            <listheader>
+            <term>Value</term>
+            <term>Meaning</term>
+            </listheader>
+            <item>
+            <term>TRANSACTION_MANAGER_VOLATILE</term>
+            <term>Indicates that the TM is volatile, and does not perform recovery.</term>
+            </item>
+            </list>
+            </param>
+            <param name="CommitStrength">Reserved; specify zero.</param>
+            <returns>
+            <para>If the function succeeds, the return value is a handle to the transaction manager.</para>
+            <para>
+            If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended error information, call the GetLastError function.
+            </para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            <para>Immediately after calling this function, you must call RecoverTransactionManager.</para>
+            <para>If your transaction manager is volatile, all your resource managers must also be volatile.</para>
+            <para>You must call RecoverTransactionManager after creating a TM in order for the TM to function correctly.</para>
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.GetCurrentClockTransactionManager(Vanara.PInvoke.KtmW32.HTRXNMGR,System.Int64@)">
+            <summary>Obtains a virtual clock value from a transaction manager.</summary>
+            <param name="TransactionManagerHandle">A handle to the transaction manager to obtain a virtual clock value for.</param>
+            <param name="TmVirtualClock">The latest virtual clock value for the transaction manager. See LARGE_INTEGER.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.GetEnlistmentId(Vanara.PInvoke.KtmW32.HENLISTMENT,System.Guid@)">
+            <summary>Obtains the identifier (ID) for the specified enlistment.</summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="EnlistmentId">A pointer to a variables that receives the ID of the enlistment.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.GetEnlistmentRecoveryInformation(Vanara.PInvoke.KtmW32.HENLISTMENT,System.UInt32,System.IntPtr,System.UInt32@)">
+            <summary>
+            Retrieves an opaque structure of recovery data from KTM. Recovery information is stored in a log on behalf of a resource manager
+            (RM) by calling the SetEnlistmentRecoveryInformation function. After a failure, the RM can use the
+            <c>GetEnlistmentRecoveryInformation</c> function to retrieve the information.
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="BufferSize">The size of the Buffer parameter, in bytes.</param>
+            <param name="Buffer">A pointer to a buffer that receives the enlistment recovery information.</param>
+            <param name="BufferUsed">A pointer to a variable that receives the actual number of bytes returned in the Buffer parameter.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>This call cannot be used with volatile transaction managers.</remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.GetNotificationResourceManager(Vanara.PInvoke.KtmW32.HRESMGR,System.IntPtr,System.UInt32,System.UInt32,System.UInt32@)">
+            <summary>
+            Requests and receives a notification for a resource manager (RM). This function is used by the RM register to receive
+            notifications when a transaction changes state.
+            </summary>
+            <param name="ResourceManagerHandle">A handle to the resource manager.</param>
+            <param name="TransactionNotification">A pointer to a TRANSACTION_NOTIFICATION structure that receives the first available notification.</param>
+            <param name="NotificationLength">The size of the TransactionNotification buffer, in bytes.</param>
+            <param name="dwMilliseconds">
+            The time, in milliseconds, for which the calling application is blocking while waiting for the notification to become available.
+            If no notifications are available when the timeout expires, <c>ERROR_TIMEOUT</c> is returned.
+            </param>
+            <param name="ReturnLength">
+            A pointer to a variable that receives the actual size of the notification received by the TransactionNotification parameter.
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            All resource managers must register to receive <c>TRANSACTION_NOTIFY_PREPREPARE</c>, <c>TRANSACTION_NOTIFY_PREPARE</c>, and
+            <c>TRANSACTION_NOTIFY_COMMIT</c> notifications, even if they subsequently call ReadOnlyEnlistment to mark an enlistment as
+            read-only. Resource managers can support <c>TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT</c>, but they must also support the
+            multi-phase pre-prepare, prepare, and commit notifications. For the list of all notifications that resource managers can receive,
+            see TRANSACTION_NOTIFICATION.
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.GetNotificationResourceManagerAsync(Vanara.PInvoke.KtmW32.HRESMGR,System.IntPtr,System.UInt32,System.UInt32@,System.Threading.NativeOverlapped*)">
+            <summary>
+            Requests and receives asynchronous notification for a resource manager (RM). This function is used by the RM register to receive
+            notifications when a transaction changes state.
+            </summary>
+            <param name="ResourceManagerHandle">A handle to the resource manager.</param>
+            <param name="TransactionNotification">A pointer to a TRANSACTION_NOTIFICATION structure that receives the first available notification.</param>
+            <param name="TransactionNotificationLength">The size of the TransactionNotification buffer, in bytes.</param>
+            <param name="ReturnLength">
+            A pointer to a variable that receives the actual size of the notification received by the TransactionNotification parameter.
+            </param>
+            <param name="lpOverlapped">A pointer to an OVERLAPPED structure that is required for asynchronous operation.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            <para>
+            All resource managers must register to receive <c>TRANSACTION_NOTIFY_PREPREPARE</c>, <c>TRANSACTION_NOTIFY_PREPARE</c>, and
+            <c>TRANSACTION_NOTIFY_COMMIT</c> notifications, even if they subsequently call ReadOnlyEnlistment to mark an enlistment as
+            read-only. Resource managers can support <c>TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT</c>, but they must also support the
+            multi-phase pre-prepare, prepare, and commit notifications. For the list of all notifications that resource managers can receive,
+            see TRANSACTION_NOTIFICATION.
+            </para>
+            <para>
+            Resource managers (RM) may want to call this function more than once to provide multiple buffers for KTM to use when delivering
+            notifications. The number of calls to this function depends on how much load your RM is carrying.
+            </para>
+            <para>This function must be called after the SetResourceManagerCompletionPort function is called.</para>
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.GetTransactionId(Vanara.PInvoke.Kernel32.HTRXN,System.Guid@)">
+            <summary>Obtains the identifier (ID) for the specified transaction.</summary>
+            <param name="TransactionHandle">A handle to the transaction.</param>
+            <param name="TransactionId">A pointer to a variable that receives the ID of the transaction.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.GetTransactionInformation(Vanara.PInvoke.Kernel32.HTRXN,Vanara.PInvoke.KtmW32.TRANSACTION_OUTCOME@,System.IntPtr,System.IntPtr,System.UInt32@,System.UInt32,System.Text.StringBuilder)">
+            <summary>Returns the requested information about the specified transaction.</summary>
+            <param name="TransactionHandle">
+            A handle to the transaction. The handle must have the TRANSACTION_QUERY_INFORMATION permission to retrieve the information.
+            </param>
+            <param name="Outcome">
+            A pointer to a buffer that receives the current outcome of the transaction. If the call to the <c>GetTransactionInformation</c>
+            function is successful, this value will be one of the TRANSACTION_OUTCOME enumeration values.
+            </param>
+            <param name="IsolationLevel">Reserved.</param>
+            <param name="IsolationFlags">Reserved.</param>
+            <param name="Timeout">A pointer to a variable that receives the timeout value, in milliseconds, for this transaction.</param>
+            <param name="BufferLength">
+            The size of the Description parameter, in bytes. The buffer length value cannot be longer than the value of MAX_TRANSACTION_DESCRIPTION_LENGTH.
+            </param>
+            <param name="Description">A pointer to a buffer that receives the user-defined description of the transaction.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero. To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.GetTransactionManagerId(Vanara.PInvoke.KtmW32.HTRXNMGR,System.Guid@)">
+            <summary>Obtains an identifier for the specified transaction manager.</summary>
+            <param name="TransactionManagerHandle">A handle to the transaction manager.</param>
+            <param name="TransactionManagerId">A pointer to a variable that receives the identifier for the transaction manager.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.OpenEnlistment(Vanara.PInvoke.KtmW32.EnlistmentAccess,Vanara.PInvoke.KtmW32.HRESMGR,System.Guid@)">
+            <summary>Opens an existing enlistment object, and returns a handle to the enlistment.</summary>
+            <param name="dwDesiredAccess">The access requested for this enlistment. See Enlistment Access Masks for a list of valid values.</param>
+            <param name="ResourceManagerHandle">A handle to the resource manager.</param>
+            <param name="EnlistmentId">The enlistment identifier.</param>
+            <returns>
+            <para>If the function succeeds, the return value is a handle to the enlistment.</para>
+            <para>
+            If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended error information, call the GetLastError function.
+            </para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.OpenResourceManager(Vanara.PInvoke.KtmW32.ResourceManagerAccess,Vanara.PInvoke.KtmW32.HTRXNMGR,System.Guid@)">
+            <summary>Opens an existing resource manager (RM).</summary>
+            <param name="dwDesiredAccess">The access requested for the RM. See Resource Manager Access Masks for a list of valid values.</param>
+            <param name="TmHandle">A handle to the transaction manager.</param>
+            <param name="ResourceManagerId">The identifier for this resource manager.</param>
+            <returns>
+            <para>If the function succeeds, the return value is a handle to the resource manager.</para>
+            <para>
+            If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended error information, call the GetLastError function.
+            </para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>Immediately after calling this function, you must call RecoverResourceManager.</remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.OpenTransaction(Vanara.PInvoke.KtmW32.TransactionAccess,System.Guid@)">
+            <summary>Opens an existing transaction.</summary>
+            <param name="dwDesiredAccess">
+            The access to the transaction object. You must have read and write access to work with a transaction. See Transaction Access
+            Masks for a list of valid values.
+            </param>
+            <param name="TransactionId">
+            The GUID that identifies the transaction to be opened. This is commonly referred to as a unit of work for the transaction.
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is a handle to the transaction.</para>
+            <para>
+            If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended error information, call the GetLastError function.
+            </para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            Clients close the transaction handle by using the CloseHandle function. If the last transaction handle is closed without anyone
+            calling the CommitTransaction function on the transaction, then the KTM implicitly rolls back the transaction.
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.OpenTransactionManager(System.String,Vanara.PInvoke.KtmW32.TransactionMgrAccess,System.UInt32)">
+            <summary>Opens an existing transaction manager.</summary>
+            <param name="LogFileName">The name of the log stream. This stream must exist within a CLFS log file.</param>
+            <param name="DesiredAccess">The access requested. See Transaction Manager Access Masks for a list of valid values.</param>
+            <param name="OpenOptions">Reserved; specify zero.</param>
+            <returns>
+            <para>If the function succeeds, the return value is a handle to the transaction manager.</para>
+            <para>
+            If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended error information, call the GetLastError function.
+            </para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            <para>Immediately after calling this function, you must call RecoverTransactionManager.</para>
+            <para>
+            The LogFileName must be specified using the NT file format. For example: &lt;drive&gt;:&lt;path&gt;. Do not use the .BLF extension.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.OpenTransactionManagerById(System.Guid@,Vanara.PInvoke.KtmW32.TransactionMgrAccess,System.UInt32)">
+            <summary>Opens an existing transaction manager.</summary>
+            <param name="TransactionManagerId">The identifier of the transaction to open.</param>
+            <param name="DesiredAccess">The access requested. See Transaction Manager Access Masks for a list of valid values.</param>
+            <param name="OpenOptions">Reserved; specify zero.</param>
+            <returns>
+            <para>If the function succeeds, the return value is a handle to the transaction manager.</para>
+            <para>
+            If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended error information, call the GetLastError function.
+            </para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>Immediately after calling this function, you must call RecoverTransactionManager.</remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.PrepareComplete(Vanara.PInvoke.KtmW32.HENLISTMENT,System.Int64@)">
+            <summary>
+            Indicates that the resource manager (RM) has completed all processing necessary to guarantee that a commit or abort operation
+            will succeed for the specified transaction.
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="TmVirtualClock">
+            <para>
+            The latest virtual clock value received for this prepare complete notification. If you specify <c>NULL</c>, the virtual clock
+            value is not changed. See LARGE_INTEGER.
+            </para>
+            <para>To change the virtual clock value, this value must be greater than the current value returned in the COMMIT notification.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.PrepareComplete(Vanara.PInvoke.KtmW32.HENLISTMENT,System.IntPtr)">
+            <summary>
+            Indicates that the resource manager (RM) has completed all processing necessary to guarantee that a commit or abort operation
+            will succeed for the specified transaction.
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="TmVirtualClock">
+            <para>
+            The latest virtual clock value received for this prepare complete notification. If you specify <c>NULL</c>, the virtual clock
+            value is not changed. See LARGE_INTEGER.
+            </para>
+            <para>To change the virtual clock value, this value must be greater than the current value returned in the COMMIT notification.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.PrepareEnlistment(Vanara.PInvoke.KtmW32.HENLISTMENT,System.Int64@)">
+            <summary>
+            Prepares the transaction associated with this enlistment handle. This function is used by communication resource managers
+            (sometimes called superior transaction managers).
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment for which the prepare operation has completed.</param>
+            <param name="TmVirtualClock">A pointer to the latest virtual clock value received for this transaction.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.PrePrepareComplete(Vanara.PInvoke.KtmW32.HENLISTMENT,System.Int64@)">
+            <summary>
+            Signals that this resource manager has completed its pre-prepare work, so that other resource managers can now begin their
+            prepare operations.
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="TmVirtualClock">
+            <para>
+            The latest virtual clock value received for this pre-prepare operation. If you specify <c>NULL</c>, the virtual clock value is
+            not changed. See LARGE_INTEGER.
+            </para>
+            <para>To change the virtual clock value, this value must be greater than the current value returned in the COMMIT notification.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.PrePrepareComplete(Vanara.PInvoke.KtmW32.HENLISTMENT,System.IntPtr)">
+            <summary>
+            Signals that this resource manager has completed its pre-prepare work, so that other resource managers can now begin their
+            prepare operations.
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="TmVirtualClock">
+            <para>
+            The latest virtual clock value received for this pre-prepare operation. If you specify <c>NULL</c>, the virtual clock value is
+            not changed. See LARGE_INTEGER.
+            </para>
+            <para>To change the virtual clock value, this value must be greater than the current value returned in the COMMIT notification.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.PrePrepareEnlistment(Vanara.PInvoke.KtmW32.HENLISTMENT,System.Int64@)">
+            <summary>
+            Pre-prepares the transaction associated with this enlistment handle. This function is used by communication resource managers
+            (sometimes called superior transaction managers).
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment for which the prepare operation has completed.</param>
+            <param name="TmVirtualClock">A pointer to the latest virtual clock value received for this transaction.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.ReadOnlyEnlistment(Vanara.PInvoke.KtmW32.HENLISTMENT,System.Int64@)">
+            <summary>
+            Requests that the specified enlistment be converted to a read-only enlistment. A read-only enlistment cannot participate in the
+            outcome of the transaction and is not durably recorded for recovery.
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="TmVirtualClock">
+            <para>
+            The latest virtual clock value received for this enlistment. If you specify <c>NULL</c>, the virtual clock value is not changed.
+            See LARGE_INTEGER.
+            </para>
+            <para>To change the virtual clock value, this value must be greater than the current value returned in the COMMIT notification.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            If a resource manager no longer needs to participate in a transaction without rolling back the transaction, it should call
+            <c>ReadOnlyEnlistment</c> prior to closing the enlistment handle.
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.ReadOnlyEnlistment(Vanara.PInvoke.KtmW32.HENLISTMENT,System.IntPtr)">
+            <summary>
+            Requests that the specified enlistment be converted to a read-only enlistment. A read-only enlistment cannot participate in the
+            outcome of the transaction and is not durably recorded for recovery.
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="TmVirtualClock">
+            <para>
+            The latest virtual clock value received for this enlistment. If you specify <c>NULL</c>, the virtual clock value is not changed.
+            See LARGE_INTEGER.
+            </para>
+            <para>To change the virtual clock value, this value must be greater than the current value returned in the COMMIT notification.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            If a resource manager no longer needs to participate in a transaction without rolling back the transaction, it should call
+            <c>ReadOnlyEnlistment</c> prior to closing the enlistment handle.
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.RecoverEnlistment(Vanara.PInvoke.KtmW32.HENLISTMENT,System.IntPtr)">
+            <summary>Recovers an enlistment's state.</summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="EnlistmentKey">The key to the enlistment to be recovered.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.RecoverResourceManager(Vanara.PInvoke.KtmW32.HRESMGR)">
+            <summary>Recovers a resource manager's state from its log file.</summary>
+            <param name="ResourceManagerHandle">A handle to the resource manager.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.RecoverTransactionManager(Vanara.PInvoke.KtmW32.HTRXNMGR)">
+            <summary>Recovers a transaction manager's state from its log file.</summary>
+            <param name="TransactionManagerHandle">A handle to the transaction manager.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>This function must be called after you call CreateTransactionManager.</remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.RenameTransactionManager(System.String,System.Guid@)">
+            <summary>
+            Renames a transaction manager (TM) object. This function can only be used on named TM handles. A new <c>GUID</c> for the TM is
+            selected and can be retrieved using the GetTransactionManagerID function.
+            </summary>
+            <param name="LogFileName">The name of the log stream. This stream must exist within a CLFS log file.</param>
+            <param name="ExistingTransactionManagerGuid">A value that specifies the current name of the TM.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.RollbackComplete(Vanara.PInvoke.KtmW32.HENLISTMENT,System.Int64@)">
+            <summary>Indicates that the resource manager (RM) has successfully completed rolling back a transaction.</summary>
+            <param name="EnlistmentHandle">A handle the enlistment.</param>
+            <param name="TmVirtualClock">The latest virtual clock value received for this transaction. See LARGE_INTEGER.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            If the RM was not able to successfully roll back a transaction, the RM should request a full rollback by calling the
+            RollbackTransaction function.
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.RollbackEnlistment(Vanara.PInvoke.KtmW32.HENLISTMENT,System.Int64@)">
+            <summary>
+            Rolls back the specified transaction that is associated with an enlistment. This function cannot be called for read-only enlistments.
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="TmVirtualClock">The latest virtual clock value received for this enlistment. See LARGE_INTEGER.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            <para>
+            This function is used by an RM to roll back a transaction in which it is enlisted. All work associated with the transaction is
+            rolled back.
+            </para>
+            <para>Rollbacks are allowed by enlistments at any time before it issues a prepare complete notification.</para>
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.RollbackTransaction(Vanara.PInvoke.Kernel32.HTRXN)">
+            <summary>Requests that the specified transaction be rolled back. This function is synchronous.</summary>
+            <param name="TransactionHandle">A handle to the transaction.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>
+            If the function fails, the return value is zero. To get extended error information, call the GetLastError function. The following
+            list identifies the possible error codes:
+            </para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.RollbackTransactionAsync(Vanara.PInvoke.Kernel32.HTRXN)">
+            <summary>Requests that the specified transaction be rolled back. This function returns asynchronously.</summary>
+            <param name="TransactionHandle">A handle to the transaction.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero, and GetLastError returns ERROR_IO_PENDING.</para>
+            <para>
+            If the function fails, the return value is zero. To get extended error information, call the GetLastError function. The following
+            list identifies the possible error codes:
+            </para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.RollforwardTransactionManager(Vanara.PInvoke.KtmW32.HTRXNMGR,System.Int64@)">
+            <summary>Recovers information only to the specified virtual clock value.</summary>
+            <param name="TransactionManagerHandle">A handle to the transaction manager.</param>
+            <param name="TmVirtualClock">A pointer to the latest virtual clock value received for this transaction.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SetEnlistmentRecoveryInformation(Vanara.PInvoke.KtmW32.HENLISTMENT,System.UInt32,System.IntPtr)">
+            <summary>
+            Sets an opaque, user-defined structure of recovery data from KTM. Recovery information is stored in a log on behalf of a resource
+            manager (RM) by calling <c>SetEnlistmentRecoveryInformation</c>. After a failure, the RM can use GetEnlistmentRecoveryInformation
+            to retrieve the information.
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="BufferSize">The size of Buffer, in bytes.</param>
+            <param name="Buffer">The recovery information.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            <para>This call cannot be used with volatile transaction managers.</para>
+            <para>
+            The information that is provided by the user may not be durably stored in the log at the completion of this operation, but it
+            will be durably stored by the end of the next commit operation for this enlistment.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SetResourceManagerCompletionPort(Vanara.PInvoke.KtmW32.HRESMGR,System.IntPtr,System.IntPtr)">
+            <summary>
+            Associates the specified I/O completion port with the specified resource manager (RM). This port receives all notifications for
+            the RM.
+            </summary>
+            <param name="ResourceManagerHandle">A handle to the resource manager.</param>
+            <param name="IoCompletionPortHandle">A handle to the I/O completion port.</param>
+            <param name="CompletionKey">
+            The user-defined identifier. Typically, it is used to associate the receive notification with a specific resource manager.
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+            <remarks>
+            <para>
+            This function must be used in conjunction with the GetNotificationResourceManagerAsync function, which provides the buffers that
+            KTM uses to deliver notifications asynchronously. These functions provide a different way to receive notifications from KTM. You
+            can use these two functions instead of the GetNotificationResourceManager function.
+            </para>
+            <para>This function must be called before calling GetNotificationResourceManagerAsync.</para>
+            </remarks>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SetTransactionInformation(Vanara.PInvoke.Kernel32.HTRXN,System.UInt32,System.UInt32,System.UInt32,System.String)">
+            <summary>Sets the transaction information for the specified transaction.</summary>
+            <param name="TransactionHandle">
+            A handle to the transaction. The handle must have the TRANSACTION_SET_INFORMATION permission to set the transaction information.
+            </param>
+            <param name="IsolationLevel">Reserved; specify zero.</param>
+            <param name="IsolationFlags">Reserved.</param>
+            <param name="Timeout">The timeout value, in milliseconds, for this transaction.</param>
+            <param name="Description">The user-defined description of this transaction.</param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is 0 (zero). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SinglePhaseReject(Vanara.PInvoke.KtmW32.HENLISTMENT,System.Int64@)">
+            <summary>
+            Indicates that the resource manager (RM) is refusing a single-phase request. When a transaction manager (TM) receives this call,
+            it initiates a two-phase commit and sends a prepare request to all enlisted RMs.
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="TmVirtualClock">
+            <para>
+            The latest virtual clock value received from the single-phase request notification. If you specify <c>NULL</c>, the virtual clock
+            value is not changed. See LARGE_INTEGER.
+            </para>
+            <para>To change the virtual clock value, this value must be greater than the current value returned in the COMMIT notification.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SinglePhaseReject(Vanara.PInvoke.KtmW32.HENLISTMENT,System.IntPtr)">
+            <summary>
+            Indicates that the resource manager (RM) is refusing a single-phase request. When a transaction manager (TM) receives this call,
+            it initiates a two-phase commit and sends a prepare request to all enlisted RMs.
+            </summary>
+            <param name="EnlistmentHandle">A handle to the enlistment.</param>
+            <param name="TmVirtualClock">
+            <para>
+            The latest virtual clock value received from the single-phase request notification. If you specify <c>NULL</c>, the virtual clock
+            value is not changed. See LARGE_INTEGER.
+            </para>
+            <para>To change the virtual clock value, this value must be greater than the current value returned in the COMMIT notification.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is nonzero.</para>
+            <para>If the function fails, the return value is zero (0). To get extended error information, call the GetLastError function.</para>
+            <para>The following list identifies the possible error codes:</para>
+            </returns>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.HENLISTMENT">
+            <summary>Provides a handle to an enlistment.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HENLISTMENT.#ctor(System.IntPtr)">
+            <summary>Initializes a new instance of the <see cref="T:Vanara.PInvoke.KtmW32.HENLISTMENT"/> struct.</summary>
+            <param name="preexistingHandle">An <see cref="T:System.IntPtr"/> object that represents the pre-existing handle to use.</param>
+        </member>
+        <member name="P:Vanara.PInvoke.KtmW32.HENLISTMENT.NULL">
+            <summary>Returns an invalid handle by instantiating a <see cref="T:Vanara.PInvoke.KtmW32.HENLISTMENT"/> object with <see cref="F:System.IntPtr.Zero"/>.</summary>
+        </member>
+        <member name="P:Vanara.PInvoke.KtmW32.HENLISTMENT.IsNull">
+            <summary>Gets a value indicating whether this instance is a null handle.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HENLISTMENT.op_Explicit(Vanara.PInvoke.KtmW32.HENLISTMENT)~System.IntPtr">
+            <summary>Performs an explicit conversion from <see cref="T:Vanara.PInvoke.KtmW32.HENLISTMENT"/> to <see cref="T:System.IntPtr"/>.</summary>
+            <param name="h">The handle.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HENLISTMENT.op_Implicit(System.IntPtr)~Vanara.PInvoke.KtmW32.HENLISTMENT">
+            <summary>Performs an implicit conversion from <see cref="T:System.IntPtr"/> to <see cref="T:Vanara.PInvoke.KtmW32.HENLISTMENT"/>.</summary>
+            <param name="h">The pointer to a handle.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HENLISTMENT.op_Inequality(Vanara.PInvoke.KtmW32.HENLISTMENT,Vanara.PInvoke.KtmW32.HENLISTMENT)">
+            <summary>Implements the operator !=.</summary>
+            <param name="h1">The first handle.</param>
+            <param name="h2">The second handle.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HENLISTMENT.op_Equality(Vanara.PInvoke.KtmW32.HENLISTMENT,Vanara.PInvoke.KtmW32.HENLISTMENT)">
+            <summary>Implements the operator ==.</summary>
+            <param name="h1">The first handle.</param>
+            <param name="h2">The second handle.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HENLISTMENT.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HENLISTMENT.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HENLISTMENT.DangerousGetHandle">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.HRESMGR">
+            <summary>Provides a handle to a resource manager.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HRESMGR.#ctor(System.IntPtr)">
+            <summary>Initializes a new instance of the <see cref="T:Vanara.PInvoke.KtmW32.HRESMGR"/> struct.</summary>
+            <param name="preexistingHandle">An <see cref="T:System.IntPtr"/> object that represents the pre-existing handle to use.</param>
+        </member>
+        <member name="P:Vanara.PInvoke.KtmW32.HRESMGR.NULL">
+            <summary>Returns an invalid handle by instantiating a <see cref="T:Vanara.PInvoke.KtmW32.HRESMGR"/> object with <see cref="F:System.IntPtr.Zero"/>.</summary>
+        </member>
+        <member name="P:Vanara.PInvoke.KtmW32.HRESMGR.IsNull">
+            <summary>Gets a value indicating whether this instance is a null handle.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HRESMGR.op_Explicit(Vanara.PInvoke.KtmW32.HRESMGR)~System.IntPtr">
+            <summary>Performs an explicit conversion from <see cref="T:Vanara.PInvoke.KtmW32.HRESMGR"/> to <see cref="T:System.IntPtr"/>.</summary>
+            <param name="h">The handle.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HRESMGR.op_Implicit(System.IntPtr)~Vanara.PInvoke.KtmW32.HRESMGR">
+            <summary>Performs an implicit conversion from <see cref="T:System.IntPtr"/> to <see cref="T:Vanara.PInvoke.KtmW32.HRESMGR"/>.</summary>
+            <param name="h">The pointer to a handle.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HRESMGR.op_Inequality(Vanara.PInvoke.KtmW32.HRESMGR,Vanara.PInvoke.KtmW32.HRESMGR)">
+            <summary>Implements the operator !=.</summary>
+            <param name="h1">The first handle.</param>
+            <param name="h2">The second handle.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HRESMGR.op_Equality(Vanara.PInvoke.KtmW32.HRESMGR,Vanara.PInvoke.KtmW32.HRESMGR)">
+            <summary>Implements the operator ==.</summary>
+            <param name="h1">The first handle.</param>
+            <param name="h2">The second handle.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HRESMGR.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HRESMGR.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HRESMGR.DangerousGetHandle">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.HTRXNMGR">
+            <summary>Provides a handle to a Transaction Manager (TM).</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HTRXNMGR.#ctor(System.IntPtr)">
+            <summary>Initializes a new instance of the <see cref="T:Vanara.PInvoke.KtmW32.HTRXNMGR"/> struct.</summary>
+            <param name="preexistingHandle">An <see cref="T:System.IntPtr"/> object that represents the pre-existing handle to use.</param>
+        </member>
+        <member name="P:Vanara.PInvoke.KtmW32.HTRXNMGR.NULL">
+            <summary>Returns an invalid handle by instantiating a <see cref="T:Vanara.PInvoke.KtmW32.HTRXNMGR"/> object with <see cref="F:System.IntPtr.Zero"/>.</summary>
+        </member>
+        <member name="P:Vanara.PInvoke.KtmW32.HTRXNMGR.IsNull">
+            <summary>Gets a value indicating whether this instance is a null handle.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HTRXNMGR.op_Explicit(Vanara.PInvoke.KtmW32.HTRXNMGR)~System.IntPtr">
+            <summary>Performs an explicit conversion from <see cref="T:Vanara.PInvoke.KtmW32.HTRXNMGR"/> to <see cref="T:System.IntPtr"/>.</summary>
+            <param name="h">The handle.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HTRXNMGR.op_Implicit(System.IntPtr)~Vanara.PInvoke.KtmW32.HTRXNMGR">
+            <summary>Performs an implicit conversion from <see cref="T:System.IntPtr"/> to <see cref="T:Vanara.PInvoke.KtmW32.HTRXNMGR"/>.</summary>
+            <param name="h">The pointer to a handle.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HTRXNMGR.op_Inequality(Vanara.PInvoke.KtmW32.HTRXNMGR,Vanara.PInvoke.KtmW32.HTRXNMGR)">
+            <summary>Implements the operator !=.</summary>
+            <param name="h1">The first handle.</param>
+            <param name="h2">The second handle.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HTRXNMGR.op_Equality(Vanara.PInvoke.KtmW32.HTRXNMGR,Vanara.PInvoke.KtmW32.HTRXNMGR)">
+            <summary>Implements the operator ==.</summary>
+            <param name="h1">The first handle.</param>
+            <param name="h2">The second handle.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HTRXNMGR.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HTRXNMGR.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.HTRXNMGR.DangerousGetHandle">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.TRANSACTION_NOTIFICATION">
+            <summary>Contains the data that is associated with a transaction notification.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TRANSACTION_NOTIFICATION.TransactionKey">
+            <summary>The user-defined, opaque ID for this transaction.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TRANSACTION_NOTIFICATION.TransactionNotification">
+            <summary>The NOTIFICATION_MASK value for this transaction.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TRANSACTION_NOTIFICATION.TmVirtualClock">
+            <summary>The latest virtual clock value that is associated with this transaction. See LARGE_INTEGER.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TRANSACTION_NOTIFICATION.ArgumentLength">
+            <summary>
+            Indicates the number of bytes for the TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT structure that follow this
+            <c>TRANSACTION_NOTIFICATION</c> structure.
+            </summary>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT">
+            <summary>Indicates the transaction to be recovered. This structure is sent with a recovery notification.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT.EnlistmentId">
+            <summary>The enlistment identifier.</summary>
+        </member>
+        <member name="F:Vanara.PInvoke.KtmW32.TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT.UOW">
+            <summary>The transaction identifier, sometimes called the unit of work.</summary>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.SafeHENLISTMENT">
+            <summary>Provides a <see cref="T:System.Runtime.InteropServices.SafeHandle"/> for <see cref="T:Vanara.PInvoke.KtmW32.HENLISTMENT"/> that is disposed using <see cref="M:Vanara.PInvoke.Kernel32.CloseHandle(System.IntPtr)"/>.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHENLISTMENT.#ctor(System.IntPtr,System.Boolean)">
+            <summary>Initializes a new instance of the <see cref="T:Vanara.PInvoke.KtmW32.SafeHENLISTMENT"/> class and assigns an existing handle.</summary>
+            <param name="preexistingHandle">An <see cref="T:System.IntPtr"/> object that represents the pre-existing handle to use.</param>
+            <param name="ownsHandle">
+            <see langword="true"/> to reliably release the handle during the finalization phase; otherwise, <see langword="false"/> (not recommended).
+            </param>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHENLISTMENT.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Vanara.PInvoke.KtmW32.SafeHENLISTMENT"/> class.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHENLISTMENT.op_Implicit(Vanara.PInvoke.KtmW32.SafeHENLISTMENT)~Vanara.PInvoke.KtmW32.HENLISTMENT">
+            <summary>Performs an implicit conversion from <see cref="T:Vanara.PInvoke.KtmW32.SafeHENLISTMENT"/> to <see cref="T:Vanara.PInvoke.KtmW32.HENLISTMENT"/>.</summary>
+            <param name="h">The safe handle instance.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHENLISTMENT.InternalReleaseHandle">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.SafeHRESMGR">
+            <summary>Provides a <see cref="T:System.Runtime.InteropServices.SafeHandle"/> for <see cref="T:Vanara.PInvoke.KtmW32.HRESMGR"/> that is disposed using <see cref="M:Vanara.PInvoke.Kernel32.CloseHandle(System.IntPtr)"/>.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHRESMGR.#ctor(System.IntPtr,System.Boolean)">
+            <summary>Initializes a new instance of the <see cref="T:Vanara.PInvoke.KtmW32.SafeHRESMGR"/> class and assigns an existing handle.</summary>
+            <param name="preexistingHandle">An <see cref="T:System.IntPtr"/> object that represents the pre-existing handle to use.</param>
+            <param name="ownsHandle">
+            <see langword="true"/> to reliably release the handle during the finalization phase; otherwise, <see langword="false"/> (not recommended).
+            </param>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHRESMGR.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Vanara.PInvoke.KtmW32.SafeHRESMGR"/> class.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHRESMGR.op_Implicit(Vanara.PInvoke.KtmW32.SafeHRESMGR)~Vanara.PInvoke.KtmW32.HRESMGR">
+            <summary>Performs an implicit conversion from <see cref="T:Vanara.PInvoke.KtmW32.SafeHRESMGR"/> to <see cref="T:Vanara.PInvoke.KtmW32.HRESMGR"/>.</summary>
+            <param name="h">The safe handle instance.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHRESMGR.InternalReleaseHandle">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.SafeHTRXN">
+            <summary>Provides a <see cref="T:System.Runtime.InteropServices.SafeHandle"/> for <see cref="T:Vanara.PInvoke.Kernel32.HTRXN"/> that is disposed using <see cref="M:Vanara.PInvoke.Kernel32.CloseHandle(System.IntPtr)"/>.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHTRXN.#ctor(System.IntPtr,System.Boolean)">
+            <summary>Initializes a new instance of the <see cref="T:Vanara.PInvoke.KtmW32.SafeHTRXN"/> class and assigns an existing handle.</summary>
+            <param name="preexistingHandle">An <see cref="T:System.IntPtr"/> object that represents the pre-existing handle to use.</param>
+            <param name="ownsHandle">
+            <see langword="true"/> to reliably release the handle during the finalization phase; otherwise, <see langword="false"/> (not recommended).
+            </param>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHTRXN.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Vanara.PInvoke.KtmW32.SafeHTRXN"/> class.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHTRXN.op_Implicit(Vanara.PInvoke.KtmW32.SafeHTRXN)~Vanara.PInvoke.Kernel32.HTRXN">
+            <summary>Performs an implicit conversion from <see cref="T:Vanara.PInvoke.KtmW32.SafeHTRXN"/> to <see cref="T:Vanara.PInvoke.Kernel32.HTRXN"/>.</summary>
+            <param name="h">The safe handle instance.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHTRXN.InternalReleaseHandle">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vanara.PInvoke.KtmW32.SafeHTRXNMGR">
+            <summary>Provides a <see cref="T:System.Runtime.InteropServices.SafeHandle"/> for <see cref="T:Vanara.PInvoke.KtmW32.HTRXNMGR"/> that is disposed using <see cref="M:Vanara.PInvoke.Kernel32.CloseHandle(System.IntPtr)"/>.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHTRXNMGR.#ctor(System.IntPtr,System.Boolean)">
+            <summary>Initializes a new instance of the <see cref="T:Vanara.PInvoke.KtmW32.SafeHTRXNMGR"/> class and assigns an existing handle.</summary>
+            <param name="preexistingHandle">An <see cref="T:System.IntPtr"/> object that represents the pre-existing handle to use.</param>
+            <param name="ownsHandle">
+            <see langword="true"/> to reliably release the handle during the finalization phase; otherwise, <see langword="false"/> (not recommended).
+            </param>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHTRXNMGR.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Vanara.PInvoke.KtmW32.SafeHTRXNMGR"/> class.</summary>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHTRXNMGR.op_Implicit(Vanara.PInvoke.KtmW32.SafeHTRXNMGR)~Vanara.PInvoke.KtmW32.HTRXNMGR">
+            <summary>Performs an implicit conversion from <see cref="T:Vanara.PInvoke.KtmW32.SafeHTRXNMGR"/> to <see cref="T:Vanara.PInvoke.KtmW32.HTRXNMGR"/>.</summary>
+            <param name="h">The safe handle instance.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vanara.PInvoke.KtmW32.SafeHTRXNMGR.InternalReleaseHandle">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

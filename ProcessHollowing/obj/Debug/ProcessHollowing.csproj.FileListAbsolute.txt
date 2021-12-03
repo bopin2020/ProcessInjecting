@@ -1,0 +1,9 @@
+D:\NativeSword\ProcessHollowing\bin\Debug\ProcessHollowing.dll
+D:\NativeSword\ProcessHollowing\bin\Debug\ProcessHollowing.pdb
+D:\NativeSword\ProcessHollowing\obj\Debug\ProcessHollowing.csproj.CoreCompileInputs.cache
+D:\NativeSword\ProcessHollowing\obj\Debug\ProcessHollowing.dll
+D:\NativeSword\ProcessHollowing\obj\Debug\ProcessHollowing.pdb
+D:\NativeSword\ProcessHollowing\bin\Debug\Models.dll
+D:\NativeSword\ProcessHollowing\bin\Debug\Models.pdb
+D:\NativeSword\ProcessHollowing\obj\Debug\ProcessHollowing.csproj.AssemblyReference.cache
+D:\NativeSword\ProcessHollowing\obj\Debug\ProcessHollowing.csproj.CopyComplete

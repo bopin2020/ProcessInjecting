@@ -1,0 +1,9 @@
+D:\NativeSword\ProcessDoppelganging\bin\Debug\ProcessDoppelganging.dll
+D:\NativeSword\ProcessDoppelganging\bin\Debug\ProcessDoppelganging.pdb
+D:\NativeSword\ProcessDoppelganging\bin\Debug\Models.dll
+D:\NativeSword\ProcessDoppelganging\bin\Debug\Models.pdb
+D:\NativeSword\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.csproj.AssemblyReference.cache
+D:\NativeSword\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.csproj.CoreCompileInputs.cache
+D:\NativeSword\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.csproj.CopyComplete
+D:\NativeSword\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.dll
+D:\NativeSword\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.pdb
