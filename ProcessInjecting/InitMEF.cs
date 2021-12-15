@@ -50,7 +50,7 @@ namespace ProcessInjecting
                             service.Value.paras[0][ProcessKind.ProcessHollowing] = args;
                             service.Value.Init();
                         }
-                        if (service.Value.GetType().ToString().Contains("ProcessDoppelganging") && Misc.process_Doppelganging_flag)
+                        else if (service.Value.GetType().ToString().Contains("ProcessDoppelganging") && Misc.process_Doppelganging_flag)
                         {
                             ParseMetadata(service.Value);
 
@@ -58,6 +58,10 @@ namespace ProcessInjecting
                             // service.Value.paras[0].Values.ToArray()[0] = args;
                             service.Value.paras[0][ProcessKind.ProcessDoppelganging] = args;
                             service.Value.Init();
+                        }
+                        else
+                        {
+
                         }
                     }
                 }
