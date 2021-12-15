@@ -7,3 +7,12 @@ D:\NativeSword\MEFEngine\obj\Debug\MEFEngine.csproj.AssemblyReference.cache
 D:\NativeSword\MEFEngine\bin\Debug\Models.dll
 D:\NativeSword\MEFEngine\bin\Debug\Models.pdb
 D:\NativeSword\MEFEngine\obj\Debug\MEFEngine.csproj.CopyComplete
+D:\ProcessInjectionCollection\ProcessInjecting\MEFEngine\bin\Debug\MEFEngine.dll
+D:\ProcessInjectionCollection\ProcessInjecting\MEFEngine\bin\Debug\MEFEngine.pdb
+D:\ProcessInjectionCollection\ProcessInjecting\MEFEngine\bin\Debug\Models.dll
+D:\ProcessInjectionCollection\ProcessInjecting\MEFEngine\bin\Debug\Models.pdb
+D:\ProcessInjectionCollection\ProcessInjecting\MEFEngine\obj\Debug\MEFEngine.csproj.AssemblyReference.cache
+D:\ProcessInjectionCollection\ProcessInjecting\MEFEngine\obj\Debug\MEFEngine.csproj.CoreCompileInputs.cache
+D:\ProcessInjectionCollection\ProcessInjecting\MEFEngine\obj\Debug\MEFEngine.csproj.CopyComplete
+D:\ProcessInjectionCollection\ProcessInjecting\MEFEngine\obj\Debug\MEFEngine.dll
+D:\ProcessInjectionCollection\ProcessInjecting\MEFEngine\obj\Debug\MEFEngine.pdb

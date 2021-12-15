@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEFEngine", ".\MEFEngine\MEFEngine.csproj", "{F0F0DDF6-8CA0-417F-B314-129413FAE7EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEFEngine", "MEFEngine\MEFEngine.csproj", "{F0F0DDF6-8CA0-417F-B314-129413FAE7EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", ".\Models\Models.csproj", "{2DC7A008-A6C6-497C-A25D-169A054C1F94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{2DC7A008-A6C6-497C-A25D-169A054C1F94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PEProfiles", ".\PEProfiles\PEProfiles.csproj", "{8BACAB14-A604-4C76-8F7E-FF6EEB0542AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PEProfiles", "PEProfiles\PEProfiles.csproj", "{8BACAB14-A604-4C76-8F7E-FF6EEB0542AE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{7296266B-0820-4BD0-9FE3-143C956AE9E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessInjecting", "ProcessInjecting\ProcessInjecting.csproj", "{891AFE19-F452-4466-BC42-16D68DD01DCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessHollowing", ".\ProcessHollowing\ProcessHollowing.csproj", "{236593F5-EDE3-4771-8875-B034FF8BC8FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessInjectionDemo", "ProcessInjectionDemo\ProcessInjectionDemo.csproj", "{B400FE5F-70A7-4E6B-B7BB-637BAFABF6ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessDoppelganging", ".\ProcessDoppelganging\ProcessDoppelganging.csproj", "{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{CC58E3D7-BD61-4917-98FC-508EEE8D5286}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessInjecting", ".\ProcessInjecting\ProcessInjecting.csproj", "{891AFE19-F452-4466-BC42-16D68DD01DCD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{543AEF78-035D-4048-9DE3-ACB3F0DEF721}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessInjectionDemo", ".\ProcessInjectionDemo\ProcessInjectionDemo.csproj", "{B400FE5F-70A7-4E6B-B7BB-637BAFABF6ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessHollowing", "Plugins\ProcessHollowing\ProcessHollowing.csproj", "{236593F5-EDE3-4771-8875-B034FF8BC8FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", ".\UnitTestProject1\UnitTestProject1.csproj", "{CC58E3D7-BD61-4917-98FC-508EEE8D5286}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessDoppelganging", "Plugins\ProcessDoppelganging\ProcessDoppelganging.csproj", "{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,14 +39,6 @@ Global
 		{8BACAB14-A604-4C76-8F7E-FF6EEB0542AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BACAB14-A604-4C76-8F7E-FF6EEB0542AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BACAB14-A604-4C76-8F7E-FF6EEB0542AE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{236593F5-EDE3-4771-8875-B034FF8BC8FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{236593F5-EDE3-4771-8875-B034FF8BC8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{236593F5-EDE3-4771-8875-B034FF8BC8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{236593F5-EDE3-4771-8875-B034FF8BC8FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}.Release|Any CPU.Build.0 = Release|Any CPU
 		{891AFE19-F452-4466-BC42-16D68DD01DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{891AFE19-F452-4466-BC42-16D68DD01DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{891AFE19-F452-4466-BC42-16D68DD01DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,13 +51,21 @@ Global
 		{CC58E3D7-BD61-4917-98FC-508EEE8D5286}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC58E3D7-BD61-4917-98FC-508EEE8D5286}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC58E3D7-BD61-4917-98FC-508EEE8D5286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{236593F5-EDE3-4771-8875-B034FF8BC8FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{236593F5-EDE3-4771-8875-B034FF8BC8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{236593F5-EDE3-4771-8875-B034FF8BC8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{236593F5-EDE3-4771-8875-B034FF8BC8FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{236593F5-EDE3-4771-8875-B034FF8BC8FA} = {7296266B-0820-4BD0-9FE3-143C956AE9E3}
-		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95} = {7296266B-0820-4BD0-9FE3-143C956AE9E3}
+		{236593F5-EDE3-4771-8875-B034FF8BC8FA} = {543AEF78-035D-4048-9DE3-ACB3F0DEF721}
+		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95} = {543AEF78-035D-4048-9DE3-ACB3F0DEF721}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BDD4536-868A-433D-82BF-068ABF7D4344}

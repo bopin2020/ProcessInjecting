@@ -32,7 +32,7 @@ namespace ProcessInjecting
             if (processkind.Equals("ProcessHollowing")) { Misc.process_Hollowing_flag = true; };
             if (processkind.Equals("ProcessDoppelganging")) { Misc.process_Doppelganging_flag = true; };
 
-            var catalog = new DirectoryCatalog(@"D:\NativeSword\ProcessInjecting\InjectionPlugins", "*.dll");
+            var catalog = new DirectoryCatalog(@"./InjectionPlugins", "*.dll");
             using (CompositionContainer container = new CompositionContainer(catalog))
             {
                 IEnumerable<Lazy<IService>> services = container.GetExports<IService>();
