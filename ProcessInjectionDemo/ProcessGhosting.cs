@@ -18,6 +18,9 @@ namespace ProcessInjectionDemo
     /// https://github.com/knightswd/ProcessGhosting     
     /// 在hasherezade基础上对关键函数进行了systemcall，堆内存操作api进行了unhook
     /// syscall 使用asm汇编语言编写
+    ///  
+    /// https://github.com/IkerSaint/KingHamlet   ProcessGhosting Tools
+    /// 
     /// </summary>
     partial class ProcessGhosting
     {
