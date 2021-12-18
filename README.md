@@ -11,8 +11,27 @@ Process Injection Collection via C#
 
 <img src="./images/processinjecting.jpg" style="zoom:50%;" />
 
-<<<<<<< HEAD
-=======
+
+> 目录介绍
+
+```
+Plugins 插件目录   基于MEF导出锲约生产插件供 ProcessInjecting主框架消费使用
+MEFEngine MEF插件解析引擎,打算作为插件生产者和消费者中间代理的，后面再改把，现在啥用也没有。
+Models 各种数据结构定义
+PEProfiles 解析pe profile; 执行注入技术时,直接将对象作为参数传入提升执行的扩展性
+ProcessInjecting 主框架 
+ProcessInjectionDemo  tmp临时解决方案，学习注入技术用的。
+UnitTestProject1 单元测试，暂时没啥用。
+```
+
+> 项目初衷
+
+```
+打算将注入技术总结性学习同时为其他朋友提供参考资料，代码里面也提供了元数据作为参考来源; 然后就是锻炼锻炼代码规整或者说设计能力，后面可能会考虑使用设计模式来重写，
+总之这是一个长期维护的项目，欢迎喜欢.NET的伙伴一起学习。
+
+```
+
 
 ## 命令帮助
 > 
