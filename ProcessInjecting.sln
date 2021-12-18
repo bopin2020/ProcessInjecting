@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessHollowing", "Plugins
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessDoppelganging", "Plugins\ProcessDoppelganging\ProcessDoppelganging.csproj", "{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleStomping", "ModuleStomping\ModuleStomping.csproj", "{A9D491FD-B39D-4989-BFAC-A0E3B3A20F14}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleStomping", "Plugins\ModuleStomping\ModuleStomping.csproj", "{A9D491FD-B39D-4989-BFAC-A0E3B3A20F14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

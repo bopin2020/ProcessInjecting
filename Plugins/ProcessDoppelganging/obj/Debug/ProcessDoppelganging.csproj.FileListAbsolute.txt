@@ -7,3 +7,12 @@ D:\NativeSword\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.csproj.CoreCo
 D:\NativeSword\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.csproj.CopyComplete
 D:\NativeSword\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.dll
 D:\NativeSword\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.pdb
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessDoppelganging\bin\Debug\ProcessDoppelganging.dll
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessDoppelganging\bin\Debug\ProcessDoppelganging.pdb
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessDoppelganging\bin\Debug\Models.dll
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessDoppelganging\bin\Debug\Models.pdb
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.csproj.AssemblyReference.cache
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.csproj.CoreCompileInputs.cache
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.csproj.CopyComplete
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.dll
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessDoppelganging\obj\Debug\ProcessDoppelganging.pdb
