@@ -12,6 +12,31 @@ Process Injection Collection via C#
 <img src="./images/processinjecting.jpg" style="zoom:50%;" />
 
 
+> 命令帮助
+> -p 指定要执行的哪一种注入技术 目前支持的由插件支持Plugins目录下
+> -d Demo 目前仅仅设置了这一项 为了演示注入技术的效果
+> -y Profile.yaml 使用pefile 
+> 里面内置了是否使用RWX内存,Dinvoke,是否使用syscall以及是否使用地狱之门方式的系统调用,然后就是常规的evasions技术 blockdlls,bypass amis,etw等
+> 目前打算先实现功能,注入技术原理理解的差不多了再考虑使用profile里面这些规避技术。
+```
+  -p, --processkind    Required. Process Injection's type [ ProcessHollowing |  ProcessDoppelganging | ModuleStomping ]
+
+  -d, --demo           Required. Show you one demo for the specified process injection technique
+
+  -y, --profile        Required. Opsec for Process Injection
+
+  --help               Display this help screen.
+
+  --version            Display version information.
+
+Example: 
+-p ModuleStomping -d Demo -y Profile.yaml
+```
+
+
+
+
+
 ## Module Stomping
 
 ```
