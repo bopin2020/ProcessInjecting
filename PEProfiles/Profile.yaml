@@ -1,28 +1,33 @@
-userwx: true
-dinvoke : false
-syscall : false
-hellgates : false
-patchAmsi : false
-patchEtw  : false
-Blockdlls  : false
-XOR  : 0x0f
-sleep_time  : 5000
-# Process Ghosting for opsec by syscall and unhook memory handle api
-# Reference: https://github.com/knightswd/ProcessGhosting
-unhooks: 
-- "NtReadVirtualMemory"
-- "NtAllocateVirtualMemory"
-- "NtWriteVirtualMemory"
-spwanto   : c:\\windows\\system32\\rundll32.exe
-#
-# yaml文件格式学习
+# Profile common module
+CommonModule :
+ ProfileName : "James.profile"
+ Description : "This is a decription info,m"
+ Author		 : ""
+ Url		 : ""
+ Date		 : "2021/12/26"
+
+# Profile Generate module
+Generate :
+ userwx: true
+ dinvoke : false
+ syscall : false
+ hellgates : false
+ patchAmsi : false
+ patchEtw  : false
+ Blockdlls  : false
+ XOR  : 0x0f
+ sleep_time  : 5000
+ # Process Ghosting for opsec by syscall and unhook memory handle api
+ # Reference: https://github.com/knightswd/ProcessGhosting
+ unhooks: 
+ - "NtReadVirtualMemory"
+ - "NtAllocateVirtualMemory"
+ - "NtWriteVirtualMemory"
+ spwanto   : c:\\windows\\system32\\rundll32.exe
+
+# Profile useless and miscellaenous module
+Misc :
 # https://zhuanlan.zhihu.com/p/75067291
-#
-#
-# 
-# 使用冒号代表 冒号后加一个空格
-#
-#
-#
-#
-host: { ip: 127.0.0.1,port: 2222 }
+
+
+ host: { ip: 127.0.0.1,port: 2222 }

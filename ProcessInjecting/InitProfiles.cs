@@ -14,17 +14,17 @@ namespace ProcessInjecting
             if (Profile.Execute(filename))
             {
 #if DEBUG
-                Console.WriteLine("userwx:" + Profile.pe.userwx);
-                Console.WriteLine("syscall:" + Profile.pe.dinvoke);
-                Console.WriteLine("syscall:" + Profile.pe.syscall);
-                Console.WriteLine("hellgates:" + Profile.pe.hellgates);
-                Console.WriteLine("patchAmsi:" + Profile.pe.patchAmsi);
-                Console.WriteLine("patchEtw:" + Profile.pe.patchEtw);
-                Console.WriteLine("Blockdlls:" + Profile.pe.Blockdlls);
-                Console.WriteLine("XOR:" + Profile.pe.XOR);
-                Console.WriteLine("sleep_time:" + Profile.pe.sleep_time);
-                Console.WriteLine("spwanto:" + Profile.pe.spwanto);
-                Console.WriteLine(Profile.pe.unhooks[0] + "\n" + Profile.pe.unhooks[1] + "\n" + Profile.pe.unhooks[2] + "\n");
+                Console.WriteLine("userwx:" + Profile.pe.Generic.userwx);
+                Console.WriteLine("syscall:" + Profile.pe.Generic.dinvoke);
+                Console.WriteLine("syscall:" + Profile.pe.Generic.syscall);
+                Console.WriteLine("hellgates:" + Profile.pe.Generic.hellgates);
+                Console.WriteLine("patchAmsi:" + Profile.pe.Generic.patchAmsi);
+                Console.WriteLine("patchEtw:" + Profile.pe.Generic.patchEtw);
+                Console.WriteLine("Blockdlls:" + Profile.pe.Generic.Blockdlls);
+                Console.WriteLine("XOR:" + Profile.pe.Generic.XOR);
+                Console.WriteLine("sleep_time:" + Profile.pe.Generic.sleep_time);
+                Console.WriteLine("spwanto:" + Profile.pe.Generic.spwanto);
+                Console.WriteLine(Profile.pe.Generic.unhooks[0] + "\n" + Profile.pe.Generic.unhooks[1] + "\n" + Profile.pe.Generic.unhooks[2] + "\n");
 #endif
             }
         }

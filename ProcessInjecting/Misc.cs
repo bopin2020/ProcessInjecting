@@ -39,6 +39,8 @@ namespace ProcessInjecting
         public static bool process_Herpaderping_flag = false;
         public static bool process_Ghosting_flag = false;
         public static bool process_TransactedHollowing = false;
+        public static bool process_ModuleStomping = false;
+
         
     }
     /// <summary>
@@ -55,17 +57,7 @@ namespace ProcessInjecting
     {
     }
 
-    public class Options
-    {
-        [Option('p', "processkind", Required = true, HelpText = "Process Injection's type [ ProcessHollowing |  ProcessDoppelganging | ]")]
-        public string Processkind { get; set; }
 
-        [Option('d', "demo", Required = true, HelpText = "Show you one demo for the specified process injection technique")]
-        public string Demo { get; set; }
-
-        [Option('y', "profile", Required = true, HelpText = "Opsec for Process Injection")]
-        public string ProfilePath { get; set; }
-    }
 
     /// <summary>
     /// 管理员有权限查看PPL进程

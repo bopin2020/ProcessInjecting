@@ -4,3 +4,8 @@ D:\NativeSword\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 D:\NativeSword\Models\obj\Debug\Models.dll
 D:\NativeSword\Models\obj\Debug\Models.pdb
 D:\NativeSword\Models\obj\Debug\Models.csproj.AssemblyReference.cache
+D:\ProcessInjectionCollection\ProcessInjecting\Models\bin\Debug\Models.dll
+D:\ProcessInjectionCollection\ProcessInjecting\Models\bin\Debug\Models.pdb
+D:\ProcessInjectionCollection\ProcessInjecting\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\ProcessInjectionCollection\ProcessInjecting\Models\obj\Debug\Models.dll
+D:\ProcessInjectionCollection\ProcessInjecting\Models\obj\Debug\Models.pdb

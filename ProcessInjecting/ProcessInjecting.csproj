@@ -75,14 +75,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="common\CommonUtils.cs" />
     <Compile Include="InitMEF.cs" />
     <Compile Include="InitProfiles.cs" />
     <Compile Include="Misc.cs" />
+    <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Content Include="bin\Debug\Profile.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +105,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="InjectionPlugins\ModuleStomping.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="InjectionPlugins\ProcessDoppelganging.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
