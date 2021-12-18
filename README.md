@@ -13,31 +13,35 @@ Process Injection Collection via C#
 
 
 ## Module Stomping
->  ======解析profile======>\n
-> userwx:True\n
-> syscall:False
-> syscall:False
-> hellgates:False
-> patchAmsi:False
-> patchEtw:False
-> Blockdlls:False
-> XOR:15
-> sleep_time:5000
-> spwanto:c:\\windows\\system32\\rundll32.exe
-> NtReadVirtualMemory
-> NtAllocateVirtualMemory
-> NtWriteVirtualMemory
->
-> Name:           Module Stomping
-> Description:    Module Stomping (which also seems to by the names Module Overloading and Dll Hollowing)is a shellcode injection technique
-> References:
->                 https://github.com/countercept/ModuleStomping
->                 https://blog.f-secure.com/hiding-malicious-code-with-module-stomping/
->                 https://offensivedefence.co.uk/posts/module-stomping/
->                 https://www.ired.team/offensive-security/code-injection-process-injection/modulestomping-dll-hollowing-shellcode-injection
-> Principles:
->                 1. Create a process or open a handle to an existing process
->                 2. Fore that process to load a legitimate DLL from disk
->                 3. Write the shellcode somewhere into the DLL
->                 4. Kick off execution using CreateRemoteThread or other (eg.UserQueueAPC also works)
-> Invoke Module Stomping
+
+```
+======解析profile======>
+userwx:True
+syscall:False
+syscall:False
+hellgates:False
+patchAmsi:False
+patchEtw:False
+Blockdlls:False
+XOR:15
+sleep_time:5000
+spwanto:c:\\windows\\system32\\rundll32.exe
+NtReadVirtualMemory
+NtAllocateVirtualMemory
+NtWriteVirtualMemory
+
+Name:           Module Stomping
+Description:    Module Stomping (which also seems to by the names Module Overloading and Dll Hollowing)is a shellcode injection technique
+References:
+                https://github.com/countercept/ModuleStomping
+                https://blog.f-secure.com/hiding-malicious-code-with-module-stomping/
+                https://offensivedefence.co.uk/posts/module-stomping/
+                https://www.ired.team/offensive-security/code-injection-process-injection/modulestomping-dll-hollowing-shellcode-injection
+Principles:
+                1. Create a process or open a handle to an existing process
+                2. Fore that process to load a legitimate DLL from disk
+                3. Write the shellcode somewhere into the DLL
+                4. Kick off execution using CreateRemoteThread or other (eg.UserQueueAPC also works)
+Invoke Module Stomping
+
+```
